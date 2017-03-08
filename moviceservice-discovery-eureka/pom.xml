@@ -16,6 +16,10 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-eureka-server</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
         <!--在家里面开发的时候每次都要加上这个json依赖，不然返回json数据的时候总是报错，可能是本地仓库有些包啥的没下载好 -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
