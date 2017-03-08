@@ -2,11 +2,13 @@ package com.zhihao.miao.cloud;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
-public class Application {
+@EnableEurekaClient
+public class MoviceApplication {
 
     @Bean
     public RestTemplate restTemplate(){
@@ -14,6 +16,6 @@ public class Application {
     }
 
     public static void main(String[] args) {
-        SpringApplication.run(Application.class,args);
+        SpringApplication.run(MoviceApplication.class,args);
     }
 }
