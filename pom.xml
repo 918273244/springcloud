@@ -11,6 +11,7 @@
 	<modules>
 		<module>moviceservice-simple-consumer</module>
 		<module>userservice-simple-provider</module>
+		<module>userservice-simple-provider2</module>
 		<module>moviceservice-discovery-eureka</module>
 		<module>microservice-consumer-movie-feign</module>
 	</modules>
