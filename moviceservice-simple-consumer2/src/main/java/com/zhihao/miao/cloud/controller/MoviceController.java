@@ -15,9 +15,6 @@ import org.springframework.web.client.RestTemplate;
 @RequestMapping("/movice")
 public class MoviceController {
 
-    @Value("${user.userServicePath}")
-    private String userServicePath;
-
     @Autowired
     private LoadBalancerClient loadBalancerClient;
 
@@ -26,7 +23,9 @@ public class MoviceController {
 
     @GetMapping("/user/{id}")
     public User findById(@PathVariable Long id){
-//        return restTemplate.getForObject(userServicePath+id,User.class);
+        ServiceInstance serviceInstance = this.loadBalancerClient.choose("microservice-provider-user");
+        System.out.println("microservice-provider-user" + ":" + serviceInstance.getServiceId() + ":" + serviceInstance.getHost()
+                + ":" + serviceInstance.getPort());
         return restTemplate.getForObject("http://microservice-provider-user/user/simple/"+id,User.class);
     }
 

@@ -12,13 +12,8 @@ import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
 @EnableEurekaClient
-//@RibbonClient(name="microservice-provider-user", configuration = TestConfiguration.class)
-@RibbonClient(name="act-simple-provider", configuration = Test2Configuration.class)
-@ComponentScan(excludeFilters = { @ComponentScan.Filter(type = FilterType.ANNOTATION, value = ExcludeFromComponentScan.class) })
 public class MoviceApplication {
 
-    //配置了@LoadBalanced表示默认的轮询策略，使用了@RibbonClient表明了可以定制服务的轮询策略，定制的策略就是configuration值，不要将
-    //configuration的类放到Application启动类的@ComponentScan路径下，这样会将所有服务的轮询策略都用configuration配置的策略所代替
     @Bean
     @LoadBalanced
     public RestTemplate restTemplate(){
